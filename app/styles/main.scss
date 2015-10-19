@@ -1,5 +1,5 @@
 $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
-
+@import "variables";
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
@@ -12,18 +12,15 @@ $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 }
 
 /* Space out content a bit */
-body {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
+ 
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
-}
+// .header,
+// .marketing,
+// .footer {
+//   padding-left: 15px;
+//   padding-right: 15px;
+// }
 
 /* Custom page header */
 .header {
@@ -58,36 +55,45 @@ body {
     padding: 14px 24px;
   }
 }
-
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-  p + h4 {
-    margin-top: 28px;
+#main-hero{
+  padding-top: 5em;
+  background: url(../images/hero_bg.jpg) center top no-repeat;
+  background-size: cover;
+  min-height: 600px;
+  overflow: hidden;
+  position: relative;
+  &:before{
+    display: block;
+    content: '';
+    background: url(../images/symbol.png) left bottom no-repeat;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
   }
 }
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
+#hero-text{
+  color: #fff;
+  position: relative;
+  z-index: 0;
+  margin-top: 1.5em;
+  &:before{
+    display: block;
+    content: '';
+    background: fade-out($brand-danger, .1);
+    position: absolute;
+    width: 40em;
+    height: 50em;
+    top: -6.5em;
+    left: -6em;
+    z-index: -1;
+    @include skew(-20deg, 0deg);
+    /* Rectangle 11: */
   }
-
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
+  
+}
+.navbar-fixed-top{
+  border-width: 0 0 4px;
 }
